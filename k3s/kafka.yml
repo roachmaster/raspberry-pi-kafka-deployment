@@ -32,7 +32,7 @@ spec:
     matchLabels:
       app: kafka-k3s
   serviceName: kafka-k3s
-  replicas: 3
+  replicas: 1
   updateStrategy:
     type: RollingUpdate
   podManagementPolicy: OrderedReady
