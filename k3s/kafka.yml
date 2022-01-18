@@ -67,10 +67,6 @@ spec:
           ports:
             - containerPort: 9092
               name: client
-          command:
-            - sh
-            - -c
-            - "tail -f /dev/null"
           volumeMounts:
             - name: datadir
               mountPath: /kafka
