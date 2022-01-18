@@ -19,8 +19,8 @@ node {
         }
     }
 
-//     stage("Create Zoo keeper"){
-//         sh "kubectl delete --ignore-not-found=true statefulset.apps/zk  service/zk-cs service/zk-hs"
-//         sh "kubectl apply -f k3s/zookeeper.yml"
-//     }
+    stage("Create Zoo keeper"){
+        sh "kubectl delete --ignore-not-found=true statefulset.apps/zk  service/zk-cs service/zk-hs"
+        sh "kubectl apply -f k3s/zookeeper.yml"
+    }
 }
