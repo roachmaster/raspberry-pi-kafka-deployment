@@ -20,7 +20,7 @@ node {
     }
 
     stage("Create Zoo keeper"){
-        sh "kubectl delete --ignore-not-found=true statefulset.apps/kafka  service/kafka"
+        sh "kubectl delete --ignore-not-found=true statefulset.apps/kafka-k3s  service/kafka-k3s"
         sh "kubectl apply -f k3s/kafka.yml"
     }
 }
