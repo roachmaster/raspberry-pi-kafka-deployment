@@ -32,7 +32,7 @@ spec:
     matchLabels:
       app: kafka-k3s
   serviceName: kafka-k3s
-  replicas: 1
+  replicas: 3
   updateStrategy:
     type: RollingUpdate
   podManagementPolicy: OrderedReady
@@ -55,11 +55,6 @@ spec:
         - name: kubernetes-kafka-k3s
           imagePullPolicy: Always
           image: "leonardorocha1990/pi-kafka:1.0.0-SNAPSHOT"
-          env:
-            - name: KAFKA_ADVERTISED_HOST_NAME
-              value: "kafka-k3s.default"
-            - name: KAFKA_ZOOKEEPER_CONNECT
-              value: "zk-cs.default:2181"
           resources:
             requests:
               memory: "1Gi"
