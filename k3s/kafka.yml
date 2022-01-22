@@ -54,10 +54,7 @@ spec:
       containers:
         - name: kubernetes-kafka-k3s
           imagePullPolicy: Always
-          image: "leonardorocha1990/pi-kafka:1.0.0-SNAPSHOT"
-          env:
-            - name: KAFKA_HEAP_OPTS
-              value: "-Xmx256M -Xms128M"
+          image: "leonardorocha1990/pi-kafka:1.0.0-SNAPSHOT"ß
           resources:
             requests:
               memory: "1Gi"
