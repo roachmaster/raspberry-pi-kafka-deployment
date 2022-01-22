@@ -55,6 +55,9 @@ spec:
         - name: kubernetes-kafka-k3s
           imagePullPolicy: Always
           image: "leonardorocha1990/pi-kafka:1.0.0-SNAPSHOT"
+          env:
+            - name: KAFKA_HEAP_OPTS
+              value: "-Xmx256M -Xms128M"
           resources:
             requests:
               memory: "1Gi"
@@ -72,4 +75,4 @@ spec:
         accessModes: [ "ReadWriteOnce" ]
         resources:
           requests:
-            storage: 10Gi
+            storage: 5Gi
