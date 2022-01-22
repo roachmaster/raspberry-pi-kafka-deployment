@@ -11,17 +11,17 @@ ENV KAFKA_VERSION=$kafka_version \
 
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
-COPY docker/download-kafka.sh docker/start-kafka.sh docker/server.properties /tmp/
+COPY docker/download-kafka.sh docker/start-kafka.sh docker/server.properties docker/producer.properties /tmp/
 
 RUN apk add --no-cache bash curl jq docker \
  && chmod a+x /tmp/*.sh \
- && chmod 777 /tmp/server.properties \
+ && chmod 777 /tmp/*.properties \
  && mv /tmp/start-kafka.sh /usr/bin \
  && sync && /tmp/download-kafka.sh \
  && tar xfz /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt \
  && rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz \
  && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} \
- && mv /tmp/server.properties ${KAFKA_HOME}/server.properties \
+ && mv /tmp/*.properties ${KAFKA_HOME}/ \
  && rm /tmp/* \
  && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
  && apk add --no-cache --allow-untrusted glibc-${GLIBC_VERSION}.apk \
