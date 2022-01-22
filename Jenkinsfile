@@ -9,7 +9,9 @@ node {
     stage("Docker Build"){
         if(runDockerBuild){
 
-            withCredentials([usernamePassword(credentialsId: '87e61f11-079d-4052-b083-ea5859f0f85b', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+            withCredentials([usernamePassword(credentialsId: '87e61f11-079d-4052-b083-ea5859f0f85b',
+                                              passwordVariable: 'DOCKER_PASSWORD',
+                                              usernameVariable: 'DOCKER_USERNAME')]) {
                 def dockerVersion = "1.0.0-SNAPSHOT"
                 dockerBuild(dockerName:"${DOCKER_USERNAME}/pi-kafka:${dockerVersion}",
                             dockerOpt:"",
